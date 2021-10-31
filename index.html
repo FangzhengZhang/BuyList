@@ -1,0 +1,1027 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>BuyerList</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-gem"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>Welcome to BuyerList Description</h1>
+								<h3>by: Fangzheng Zhang, Carlton Prioleau, Zihao Cai</h3>
+<!--								<p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />-->
+<!--								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>-->
+								<p>  This website contains the description of CS 5744 BuyerList project.  </p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#intro">Introduction</a></li>
+								<li><a href="#requirements-summary">Requirements Summary</a></li>
+								<li><a href="#high-Level-design">High-Level Design</a></li>
+								<li><a href="#design-rationale">Design Rationale</a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div >
+
+						<!-- Intro -->
+							<article id="intro">
+								<h2 class="major">Introduction</h2>
+<!--								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
+								<p>The system our team designed is a trading system, a platform where the buyer can post what they want, and other users can see the post and try to connect with the buyer. The user can login and has own profile. Users can post a request about what they want with some descriptions, such as pick-up or ship, prices, zip code, e-mail address or phone number. Some of the descriptions are optional. Those posts will be shown on the platform. If someone could offer the request stuff, then he/she/them could connect with the buyer for more details. Other users could search by zip codes or keywords to obtain more specific posts. If the trade is completed or the buyer no longer needs it, the buyer can mark the post as done, then the post will disappear from the platform, but the buyer still can see all posts from history in profile. Every post has a one week time limitation, after one week the post will expire and disappear.</p>
+								<p>We are going to use a data central structure as users can require data which is stored on our server, and abstract data types style as the whole system will be built on object oriented languages. This system will have three main parts:</p>
+								<ul>
+									<li>Front-end: implement with JavaScript, HTML, CSS. This section will be used for display buyer and seller information, and the used goods details.</li>
+									<li>Back-end: implement with Java, python, and shell script. The backend will handle user’s requests and load the file or data from the database and the server file system.</li>
+									<li>Database: we are planning to use MySQL and MongoDB as our primary database. The user and goods data will be stored in the database.</li>
+								</ul>
+									<p>The idea of this project came from VT student group chat, where students do used goods trade. We found that people not only post used items in the chat, they also ask people whether they have something that he/she/them want. So we thought a buyer-lead used goods trade platform would be an interesting idea. This project is a completely new idea that we have never worked on before. So the progress of this project is zero at this point.</p>
+							</article>
+
+						<!-- Work -->
+							<article id="requirements-summary">
+								<h2 class="major">Requirements Summary</h2>
+<!--								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>-->
+								<p>The requirements of this project are listed below: </p>
+
+								<ol>
+									<li>Buyers can create a profile and username/avatar for their account.</li>
+									<li>Sellers can create a profile and username/avatar for their account.</li>
+									<li>Buyers can post requests for what they want.</li>
+									<li>Buyer requests can contain descriptions, pick-up or shipping information, target prices, zip codes, e-mail address and/or phone number.</li>
+									<li>Some of the descriptions are optional.</li>
+									<li>Requests will be visible through the BuyerList tool/application.</li>
+									<li>Other people can see and review requests.</li>
+									<li>Users can search requests by zip codes or key words to find specific requests.</li>
+									<li>People can connect with the requester to make an offer to satisfy the request.</li>
+									<li>Potential sellers can connect with the buyer through the application and exchange more details.</li>
+									<li>If the trade is done, the request post is marked as completed.</li>
+									<li>A buyer can change their mind and mark the request as “No longer needed”, which will complete the request and archive it.</li>
+									<li>Every request post has a one week time limit. After one week, the request expires and is removed.</li>
+									<li>Completed request posts are removed from the active database and moved to the archive.</li>
+								</ol>
+
+								</article>
+
+						<!-- About -->
+							<article id="high-Level-design">
+								<h2 class="major">High-Level Design</h2>
+<!--								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>-->
+<!--								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>-->
+								<p class="no-padding"><b>Functions/Modules:</b></p>
+								<p>The BuyerList tool has the following functions/modules:</p>
+								<ul>
+									<li><b>Create New User</b>
+										<ul>
+											<li>A user of the BuyerList system could be a buyer who is requesting something or a seller who is offering a requested item. In either case, a user needs to have a profile created in the system before they can use the system. The user’s profile will consist of a username, password and personal contact information such as their full name, e-mail address and phone number. Users will be identified within the BuyerList system by their username.</li>
+											<li>This satisfies requirement 01 and requirement 02.</li>
+										</ul>
+									</li>
+									<li><b>User Logon</b>
+										<ul>
+											<li>Users will logon to the BuyerList system by their username and password.</li>
+										</ul>
+									</li>
+									<li><b>Create New Request</b>
+										<ul>
+											<li>A user can create a new request for something they want. The request needs to contain the following information:
+												<ul>
+													<li>Title of what is being requested. This is a required entry.</li>
+													<li>A description of the request. This is a required entry.</li>
+													<li>Condition of the request. This is an optional entry. The user will be able to select from condition options: New, Like new, Excellent, Good, Fair, and Salvage.</li>
+													<li>Transportation information, such as requesting delivery to a location or willing to pick-up. This is a required entry.</li>
+													<li>Zip code where the requester lives or where delivery is being requested. This is a required entry.</li>
+													<li>The username of the requester (buyer) will automatically be assigned to the request.</li>
+													<li>The date and time of the request creation is automatically assigned to the request.</li>
+													<li>Automatically calculate and assign the date and time for the expiration of the request record. Requests have a one-week expiration.</li>
+												</ul>
+											</li>
+											<li>This satisfies requirement 03, requirement 04, and requirement 05.</li>
+										</ul>
+									</li>
+									<li><b>Search Requests</b>
+										<ul>
+											<li>Enter a search criteria to see requests. Search criteria options are a combination of the following:
+												<ul>
+													<li>Title field keyword search.</li>
+													<li>Description field keyword search.</li>
+													<li>Condition field search.</li>
+													<li>Transportation field keyword search.</li>
+													<li>Zip code field value, value list, or value range search.</li>
+													<li>Offer description field keyword search.</li>
+													<li>Requester username field search by full name or partial name.</li>
+													<li>Seller username field search by full name or partial name.</li>
+												</ul>
+											</li>
+											<li>Search results will be displayed as a list in table format.</li>
+											<li>This satisfies requirement 06, requirement 07, and requirement 08.</li>
+										</ul>
+									</li>
+									<li><b>Select Request</b>
+										<ul>
+											<li>Select a request from the search results list for further processing. This will open the single request record and display the contents of all the fields.</li>
+											<li>This satisfies requirement 05 and requirement 07.</li>
+										</ul>
+									</li>
+									<li><b>Submit Offer</b>
+										<ul>
+											<li>A seller can submit an offer to satisfy a request. The seller does this by selecting and opening the request they want to make an offer on. The seller then types the description of their offer to the buyer in the Offer Description field. The seller’s username is automatically added to the offer.</li>
+											<li>Each offer to satisfy a request should be automatically appended to the end of the request in an offer section.</li>
+											<li>This satisfies requirement 09 and requirement 10.</li>
+										</ul>
+									</li>
+									<li><b>Accept Offer</b>
+										<ul>
+											<li>The buyer who submitted the request can accept one of the offers to satisfy their request. This should be a checkbox in the offer section of the request.</li>
+										</ul>
+									</li>
+									<li><b>Reject Offer</b>
+										<ul>The buyer who submitted the request can reject offers to satisfy their request. This should be a checkbox in the offer section of the request.</ul>
+									</li>
+									<li><b>Request Not Needed</b>
+										<ul>
+											<li>The buyer can update a request and mark it as “No Longer Needed”. This will automatically cause the request to be set to a completed status.</li>
+											<li>This satisfies requirement requirement 12.</li>
+										</ul>
+									</li>
+									<li><b>Request Completed</b>
+										<ul>
+											<li>Change the status of the request to “Completed”.</li>
+											<li>No more changes can be made to this request.</li>
+											<li>Have the system send a message to the buyer that this request is complete.</li>
+											<li>Have the system send a message to all the sellers who made an offer on this request that this request is complete.</li>
+											<li>This satisfies requirement requirement 11.</li>
+										</ul>
+									</li>
+									<li><b>Request Expired</b>
+										<ul>
+											<li>Each request has an one-week expiration period. If it is still open after one week, have the system automatically change the status to “Completed”.</li>
+											<li>This satisfies requirement requirement 13.</li>
+										</ul>
+									</li>
+									<li><b>Archive Request</b>
+										<ul>
+											<li>Move requests with a “Completed” status into the archive.</li>
+											<li>Requests which have been archived can only be searched by the buyer who created the request.</li>
+											<li>This satisfies requirement requirement 14.</li>
+										</ul>
+									</li>
+								</ul>
+								<p>Refer to Figure 1 for a business process flow diagram of the BuyerList tool. The diagram shows the sequence of activities different users of the tool will follow. It shows the activities which are performed by the request (buyer) or the seller. It also shows some activities which are performed by the system.</p>
+								<span class="image main"><img src="images/Figure-1.png" alt="Figure 1 – Process Flow Diagram for the BuyerList tool" /> <b>Figure 1 – Process Flow Diagram for the BuyerList tool</b></span>
+
+
+								<br>
+								<p class="no-padding"><b>Screens:</b></p>
+								<p>The BuyerList tool has the following screens: </p>
+								<ul>
+									<li><b>New User Screen</b>
+									<ul>
+										<li>The New User Screen will allow a user to create their user profile. The screen will contain the following fields for user input:
+										<ul>
+											<li>Username</li>
+											<li>Password</li>
+											<li>User’s name</li>
+											<li>E-mail</li>
+											<li>Phone</li>
+										</ul>
+										</li>
+										<li>This satisfies requirement 01 and requirement 02.</li>
+									</ul>
+									<li><b>Logon Screen</b>
+										<ul>
+											<li>The Logon Screen will allow users to logon into the BuyerList tool. The screen will contain the following fields for user input:
+												<ul>
+													<li>Username</li>
+													<li>Password</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li><b>BuyerList Home Screen</b>
+										<ul>
+											<li>The BuyerList Home Screen is the screen users will see once they have successfully logged into the BuyerList tool. The screen will display the BuyerList tool logo.</li>
+										</ul>
+									</li>
+									<li><b>Create New Request Screen</b>
+										<ul>
+											<li>The Create New Request Screen will allow a user to create a new request for something they want. The screen will contain the following fields for user input:
+												<ul>
+													<li>Request Title</li>
+													<li>Description</li>
+													<li>Condition</li>
+													<li>Transportation</li>
+													<li>Zip Code</li>
+													<li>Username - Buyer</li>
+												</ul>
+											</li>
+											<li>This screen will satisfy requirement 03, requirement 04, and requirement 05.</li>
+										</ul>
+									</li>
+									<li><b>Search Criteria Screen</b>
+										<ul>
+											<li>The Search Criteria Screen will allow users to search through existing requests which have not been completed based on a search criterion. The screen will contain the following fields for user input:
+												<ul>
+													<li>Title</li>
+													<li>Description</li>
+													<li>Condition</li>
+													<li>Transportation</li>
+													<li>Zip Code</li>
+													<li>Offer Description</li>
+													<li>Username – Buyer</li>
+													<li>Username - Seller</li>
+												</ul>
+											</li>
+											<li>This screen will satisfy requirement 08.</li>
+										</ul>
+									</li>
+									<li><b>Search Results Screen</b>
+										<ul>
+											<li>
+												The Search Results Screen will display all the requests which meet the search criteria and have not been completed. The search results will be displayed in table form. The table will contain the following fields:
+												<ul>
+													<li>Title</li>
+													<li>Description</li>
+													<li>Condition</li>
+													<li>Transportation</li>
+													<li>Zip Code</li>
+													<li>Offer Description</li>
+													<li>Username – Buyer</li>
+													<li>Username - Seller</li>
+												</ul>
+											</li>
+											<li>This screen will satisfy requirement 06 and requirement 07.</li>
+										</ul>
+
+									</li>
+									<li><b>Selected Request Screen</b>
+										<ul>
+											<li>The Selected Request Screen will display the data for the single request which was selected for display. It will display the information available in the following fields:
+												<ul>
+													<li>Title</li>
+													<li>Description</li>
+													<li>Condition</li>
+													<li>Transportation</li>
+													<li>Zip Code</li>
+													<li>Offer Description</li>
+													<li>Username – Buyer</li>
+													<li>Username – Seller</li>
+													<li>Accept Offer</li>
+													<li>Reject Offer</li>
+													<li>No longer needed</li>
+												</ul>
+											</li>
+											<li>This screen will satisfy requirement 06 and requirement 07.</li>
+										</ul>
+									</li>
+									<li><b>Submit Offer Screen</b>
+										<ul>
+											<li>The Submit Offer Screen will allow an interested user to submit an offer to satisfy the request. The user will type their offer details here. Their offer will be sent to the requester (buyer) who created the request for their review and consideration. The screen will contain the following fields:
+												<ul>
+													<li>Title (display only)</li>
+													<li>Description (display only)</li>
+													<li>Offer Description (use input field)</li>
+													<li>Username – Seller (display only, system assigned)</li>
+												</ul>
+											</li>
+											<li>This screen will satisfy requirement 09 and requirement 10.</li>
+										</ul>
+									</li>
+								</ul>
+								<p>Refer to Figure 2 for the screen sequence of the BuyerList tool. Figure 2 shows the sequence of screens a user will go through to use the BuyerList tool. It shows the screens that both the requester (buyer) or the seller will go through to process a request and make an offer.</p>
+								<span class="image main"><img src="images/Figure-2.png" alt="Figure 2 – Screen Sequence for the BuyerList tool" /> <b>Figure 2 – Screen Sequence for the BuyerList tool</b></span>
+
+
+								<br>
+								<p class="no-padding"><b>Menus:</b></p>
+								<p>The BuyerList tool will have two menus. There is a Request Menu and an Offer Menu.</p>
+								<ul>
+									<li><b>Request Menu</b> <br>
+										The Request Menu is where a user can work on requests. The Request Menu will have the following selection options:
+										<ul>
+											<li>Create New Request
+												<ul>
+													<li>By selecting Create New Request, a user will be taken to the Create New Request Screen where they can create a request for something they want.</li>
+													<li>This menu option will satisfy requirement 03.</li>
+												</ul>
+											</li>
+											<li>Search Requests
+												<ul>
+													<li>By selecting Search Request, a user will be taken to the Search Criteria Screen where they can enter a search criterion for requests they want to review.</li>
+													<li>This menu option will satisfy requirement 08.</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li><b>Offer Menu</b> <br>
+										The Offer Menu is where a user can work on offers for a request. The Offer Menu will have the following selection options:
+										<ul>
+											<li>Submit Offer
+												<ul>
+													<li>By selecting Submit Offer, a user will be taken to the Submit Offer Screen where they can enter an offer to satisfy a request.</li>
+													<li>This menu option will satisfy requirement 09.</li>
+												</ul>
+											</li>
+											<li>Select Offer
+												<ul>
+													<li>By selecting Select Offer, a user will be taken shown the offers available for a request on the Selected Request Screen. From here, the user can select the offer they want to work on to review, accept or reject.</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<p>Refer to Figure 3 to see the two menus of the BuyerList tool. The Request Menu will be used to process requests and the Offer Menu will be used to process offers on a request.</p>
+								<span class="image main"><img src="images/Figure-3.png" alt="Figure 3 – Menus for the BuyerList tool" /> <b>Figure 3 – Menus for the BuyerList tool</b></span>
+
+								<br>
+								<p class="no-padding"><b>System Functions:</b></p>
+								<p>The BuyerList tool has the following system functions: </p>
+								<ul>
+									<li>Verify username is unique.
+										<ul><li>Every username in the BuyerList tool must be unique. When a new user is creating their user profile, the system will check whether the username they request is available. If the username already exists, then the system will throw an error that the username has been taken and a different username must be requested.</li></ul>
+									</li>
+									<li>Verify e-mail address is valid.
+										<ul><li>Verify that the e-mail address provided by the user in their profile is a valid e-mail address and that the user can be connected through that e-mail address.</li></ul>
+									</li>
+									<li>Verify phone number is valid.
+										<ul><li>Verify that the phone number provided by the user in their profile is a valid phone number and that the user can be connected through that phone number.</li></ul>
+									</li>
+									<li>Assign date and time stamp to new requests when created.
+										<ul><li>Capture the date and time when a new request is created and assign it to the request. The date and time is used to calculate the expiration date and time for the request.</li></ul>
+									</li>
+									<li>Assign expiration date and time to new request when created.
+										<ul><li>Calculate the expiration date and time for the request when it is created by using the creation date and time for the request. The calculated expiration date and time will be one week from the creation date and time.</li></ul>
+									</li>
+									<li>Set request status to “Completed” when offer accepted.
+										<ul><li>After the requester (buyer) accepts an offer for the request, automatically change the status of the request to “completed”.</li></ul>
+									</li>
+									<li>Set request status to “Completed” when request no longer needed.
+										<ul><li>After the requester (buyer) marks the request as “No longer needed”, automatically change the status of the request to “completed”.</li></ul>
+									</li>
+									<li>Set request status to “Completed” when request expires.
+										<ul><li>When the expiration date and time for an open request is reached, automatically change the status of the request to “completed”.</li></ul>
+									</li>
+									<li>Notify the buyer and all potential sellers when a request status changes to “Completed”.
+										<ul><li>When the status of a request is changed to “Completed”, then automatically send a message to the requester (buyer) who created the request and to any seller who has submitted an offer on the request. The message will inform them that the request is completed.</li></ul>
+									</li>
+									<li>Move completed requests to the archive.
+										<ul><li>When the status of a request is changed to “Completed”, then automatically move the request into the archive section of the database.</li></ul>
+									</li>
+								</ul>
+
+
+								<br>
+								<p class="no-padding"><b>State Changes:</b></p>
+								<p>The BuyerList tool has the following states and state changes for a request:</p>
+								<ul>
+									<li>Request: Created
+										<ul>
+											<li>“Created” is the initial state for each request after it has been initially created.</li>
+											<li>From the “created” state, a request can be changed to the “offer received” state when an offer has been submitted against the request.</li>
+											<li>From the “created” state, a request can be changed to the “completed” state when the buyer marks the request as “no longer needed”.</li>
+											<li>From the “created” state, a request can be changed to the “completed” state when the expiration date and time is reached without an offer being accepted.</li>
+										</ul>
+									</li>
+									<li>Request: Offer Received
+										<ul>
+											<li>The state of a request is changed to “offer received” when an offer has been submitted against the request.</li>
+											<li>From the “offer received” state, a request can be changed to the “offer accepted” state when the buyer accepts an offer submitted against their request.</li>
+											<li>From the “offer received” state, a request can be changed to the “completed” state when the buyer marks the request as “no longer needed”.</li>
+											<li>From the “offer received” state, a request can be changed to the “completed” state when the expiration date and time is reached without an offer being accepted.</li>
+										</ul>
+									</li>
+									<li>Request: Offer Accepted
+										<ul>
+											<li>The state of a request is changed to “offer accepted” when an offer has been accepted by the buyer against their request.</li>
+											<li>Once the state of the request is set to “offer accepted”, the state of the request is automatically changed to “completed”.</li>
+										</ul>
+									</li>
+									<li>Request: Completed
+										<ul>
+											<li>The state of a request can be changed to “completed” three possible ways.
+											<ul>
+												<li>The buyer can decide that their request is “no longer needed”, which will change the state of the request to “completed”.</li>
+												<li>The expiration date and time for the request can be reached, which will change the state of the request to “completed”.</li>
+												<li>The buyer can accept and offer against the request, which will change the state to “offer accepted” and then automatically change the state to “completed”.</li>
+											</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<p>Refer to Figure 4 to see the possible state changes for the BuyerList tool. As described above, the BuyerList tool has 4 possible states for a request. Figure 4 shows the ways a request can change from one state to another.</p>
+								<span class="image main"><img src="images/Figure-4.png" alt="Figure 4 – State changed for the BuyerList tool" /> <b>Figure 4 – State changed for the BuyerList tool</b></span>
+
+								<br>
+								<p class="no-padding"><b>Swimlanes:</b></p>
+								<span class="image main"><img src="images/Figure-5.png" alt="Figure 5" /> <b>Figure 5</b></span>
+								<span class="image main"><img src="images/Figure-6.png" alt="Figure 6" /> <b>Figure 6</b></span>
+
+								<br>
+								<br>
+								<p class="no-padding"><b>Quality Attributes:</b></p>
+								<p>In order to achieve the design objectives of the BuyerList tool, many design decisions are needed which will impact the design of the software architecture. Helping to drive those design decisions are the quality attributes which we feel are the most important for the success of the system.</p>
+								<p>Usability</p>
+								<p>Portability</p>
+								<p>Flexibility</p>
+								<p>Maintainability</p>
+								<p>Testability</p>
+
+								<ul>
+									<li>Product Revision
+										<ul>
+											<li>Maintainability – important (resolve any issues quickly)</li>
+											<li>Flexibility – important (changing customer needs and changing environment)
+												<ul>
+													<li>Client-server software architecture is versatile and flexible in today’s fast-changing IT landscape. It is modular in structure and relies on messaging services for communication between components. They were designed to improve flexibility, usability, scalability, and interoperability. Software flexibility implies the ability for a program to change easily according to different users and different system requirements.</li>
+												</ul>
+											</li>
+											<li>Testability – important (test fixes or new functionality quickly)</li>
+										</ul>
+									</li>
+									<li>Product Operation
+										<ul>
+											<li>Correctness</li>
+											<li>Reliability</li>
+											<li>Usability – important (must be easy to use or lose customers, competitive market)
+												<ul>
+													<li>Two tier client-server software architectures improve usability and scalability. Usability is increased though user-friendly, form-based interfaces. Scalability is improved because two tiered systems can hold up to 100 users, whereas file server architectures can only accommodate 12.</li>
+													<li>Three tier client server architecture is also known as multi-tier architecture and signals the introduction of a middle tier to mediate between clients and servers. The middle tier exists between the user interface on the client side and database management system (DBMS) on the server side. This third layer executes process management, which includes implementation of business logic and rules. The three tier models can accommodate hundreds of users.</li>
+												</ul>
+											</li>
+											<li>Integrity</li>
+											<li>Efficiency</li>
+										</ul>
+									</li>
+									<li>Product Transition
+										<ul>
+											<li>Portability – 2. important (computer vs. mobile and PC vs. Apple)
+												<ul>
+													<li>The clients can be ported to many different operating systems and still use the same server.</li>
+													<li>The clients can each be optimized to perform best for each specific operating system.</li>
+													<li>Due to the multi-tiered architecture, the server will not have to change to accommodate the different clients.</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li>Reusability</li>
+									<li>Interoperability</li>
+								</ul>
+								<br>
+								<br>
+								<p class="no-padding"><b>System Hierarchy:</b></p>
+								<span class="image main"><img src="images/Figure-7.png" alt="Figure 7" /> <b>Figure 7</b></span>
+								<br>
+								<p class="no-padding"><b>System Hierarchy:</b></p>
+								<span class="image main"><img src="images/Figure-8.png" alt="Figure 8" /> <b>Figure 8</b></span>
+								<br>
+								<p class="no-padding"><b>Top-level architecture:</b></p>
+								<ul>
+									<li>The guiding vision for the system to address all requirements</li>
+									<li>Use a naming/numbering convention</li>
+								</ul>
+								<span class="image main"><img src="images/Figure-9.png" alt="Figure 9" /> <b>Figure 9</b></span>
+								<br>
+								<br>
+								<p class="no-padding"><b>Traceability Matrix:</b></p>
+								<div class="table-wrapper">
+									Map individual requirements mapped to design components. "R" stands for requirement
+									<table class="alt">
+										<thead>
+										<tr>
+											<th></th>
+											<th>R 01</th>
+											<th>R 02</th>
+											<th>R 03</th>
+											<th>R 04</th>
+											<th>R 05</th>
+											<th>R 06</th>
+											<th>R 07</th>
+											<th>R 08</th>
+											<th>R 09</th>
+											<th>R 10</th>
+											<th>R 11</th>
+											<th>R 12</th>
+											<th>R 13</th>
+											<th>R 14</th>
+
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+											<td>Create New User</td>
+											<td>X</td>
+											<td>X</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>User Logon</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Create New Request</td>
+											<td></td>
+											<td></td>
+											<td>X</td>
+											<td>X</td>
+											<td>X</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Search Requests</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>X</td>
+											<td>X</td>
+											<td>X</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Select Request</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>X</td>
+											<td></td>
+											<td>X</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Submit Offer</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>X</td>
+											<td>X</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Accept Offer</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Reject Offer</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Request Not Needed</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>X</td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Request Completed</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>X</td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Request Expired</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>X</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Archive Request</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>X</td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+							</article>
+
+						<!-- Contact -->
+							<article id="design-rationale">
+								<h2 class="major">Design Rationale</h2>
+								<p>The BuyerList tool will be using a combination of Object-Oriented Organization and Client-Server for its software architecture. The focus of the BuyerList are the requests created by the users who are buyers. Each request is independent from the other requests. There is no interaction between the different individual requests. There is even no interaction between requests from the same user. One request does not relate to another request. Because of this independence between request objects, the Object-Oriented Organization was the best choice for the software architecture for the BuyerList tool. </p>
+								<p>Basically, our application focus on dealing with users’ request data. The application doesn’t require a complex framework to reach the requirements. Modifying and displaying data from databases can satisfy all operations. Therefore, based on the Object-Oriented Organization, just several object components are required and those components only need to process the user’s request and store it into the database or obtain the specific data from the database. For the user’s posting requirements, the user will send the descriptions, details, and image files to the server. First, the components in the server will check whether the request contains all required information and the formats. If the request is qualified, the other component will create a new request data instance store all information of the request, and store it into the database.  For the searching request, after receiving the qualified request, the component will search the target from the database, if the target is found, then the component will send the data back to the client and display it as HTML on the user’s browser. Otherwise, it will send a non-result alert. </p>
+								<p>Decision to over the BuyerList tool for computer and mobile users. For computer users, the tool will server both Windows and macOS users. For mobile users, the tool will server Android and iOS users.</p>
+								<ul>
+									<li>Usability
+										<ul><li>Our application is user-friendly. There are no complex operations in usage, all operations in our application are intuitive and simple. Users don’t have to spend time learning how to use it.  </li></ul>
+									</li>
+									<li>Portability
+										<ul><li>Our application is a web-based and client-server model, users can access the application by using any browser on any device. </li></ul>
+									</li>
+									<li>Maintainability
+										<ul><li>Our application only contains three parts: Client (HTML, Js), Server (Java) and Database(MySQL).  There is a specific company that is responsible for maintaining the database. So we only need to maintain the Client and Java part. </li></ul>
+									</li>
+									<li>Testability
+										<ul><li>Our use cases include almost all situations and our website is similar to other common shopping websites, so there are many testing examples we can use. </li></ul>
+									</li>
+									<li>Flexibility
+										<ul><li>Our application is Object-Oriented, the influences among each object are limited. So, changing the objects is simple and wouldn’t cause any unpredictable error.  The client-side is HTML-based. Therefore, making changes in the client is simple and direct.  </li></ul>
+									</li>
+
+								</ul>
+							</article>
+
+<!--						&lt;!&ndash; Elements &ndash;&gt;-->
+<!--							<article id="elements">-->
+<!--								<h2 class="major">Elements</h2>-->
+
+<!--								<section>-->
+<!--									<h3 class="major">Text</h3>-->
+<!--									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.-->
+<!--									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.-->
+<!--									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>-->
+<!--									<hr />-->
+<!--									<h2>Heading Level 2</h2>-->
+<!--									<h3>Heading Level 3</h3>-->
+<!--									<h4>Heading Level 4</h4>-->
+<!--									<h5>Heading Level 5</h5>-->
+<!--									<h6>Heading Level 6</h6>-->
+<!--									<hr />-->
+<!--									<h4>Blockquote</h4>-->
+<!--									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>-->
+<!--									<h4>Preformatted</h4>-->
+<!--									<pre><code>i = 0;-->
+
+<!--while (!deck.isInOrder()) {-->
+<!--    print 'Iteration ' + i;-->
+<!--    deck.shuffle();-->
+<!--    i++;-->
+<!--}-->
+
+<!--print 'It took ' + i + ' iterations to sort the deck.';</code></pre>-->
+<!--								</section>-->
+
+<!--								<section>-->
+<!--									<h3 class="major">Lists</h3>-->
+
+<!--									<h4>Unordered</h4>-->
+<!--									<ul>-->
+<!--										<li>Dolor pulvinar etiam.</li>-->
+<!--										<li>Sagittis adipiscing.</li>-->
+<!--										<li>Felis enim feugiat.</li>-->
+<!--									</ul>-->
+
+<!--									<h4>Alternate</h4>-->
+<!--									<ul class="alt">-->
+<!--										<li>Dolor pulvinar etiam.</li>-->
+<!--										<li>Sagittis adipiscing.</li>-->
+<!--										<li>Felis enim feugiat.</li>-->
+<!--									</ul>-->
+
+<!--									<h4>Ordered</h4>-->
+<!--									<ol>-->
+<!--										<li>Dolor pulvinar etiam.</li>-->
+<!--										<li>Etiam vel felis viverra.</li>-->
+<!--										<li>Felis enim feugiat.</li>-->
+<!--										<li>Dolor pulvinar etiam.</li>-->
+<!--										<li>Etiam vel felis lorem.</li>-->
+<!--										<li>Felis enim et feugiat.</li>-->
+<!--									</ol>-->
+<!--									<h4>Icons</h4>-->
+<!--									<ul class="icons">-->
+<!--										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>-->
+<!--										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>-->
+<!--										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>-->
+<!--										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>-->
+<!--									</ul>-->
+
+<!--									<h4>Actions</h4>-->
+<!--									<ul class="actions">-->
+<!--										<li><a href="#" class="button primary">Default</a></li>-->
+<!--										<li><a href="#" class="button">Default</a></li>-->
+<!--									</ul>-->
+<!--									<ul class="actions stacked">-->
+<!--										<li><a href="#" class="button primary">Default</a></li>-->
+<!--										<li><a href="#" class="button">Default</a></li>-->
+<!--									</ul>-->
+<!--								</section>-->
+
+<!--								<section>-->
+<!--									<h3 class="major">Table</h3>-->
+<!--									<h4>Default</h4>-->
+<!--									<div class="table-wrapper">-->
+<!--										<table>-->
+<!--											<thead>-->
+<!--												<tr>-->
+<!--													<th>Name</th>-->
+<!--													<th>Description</th>-->
+<!--													<th>Price</th>-->
+<!--												</tr>-->
+<!--											</thead>-->
+<!--											<tbody>-->
+<!--												<tr>-->
+<!--													<td>Item One</td>-->
+<!--													<td>Ante turpis integer aliquet porttitor.</td>-->
+<!--													<td>29.99</td>-->
+<!--												</tr>-->
+<!--												<tr>-->
+<!--													<td>Item Two</td>-->
+<!--													<td>Vis ac commodo adipiscing arcu aliquet.</td>-->
+<!--													<td>19.99</td>-->
+<!--												</tr>-->
+<!--												<tr>-->
+<!--													<td>Item Three</td>-->
+<!--													<td> Morbi faucibus arcu accumsan lorem.</td>-->
+<!--													<td>29.99</td>-->
+<!--												</tr>-->
+<!--												<tr>-->
+<!--													<td>Item Four</td>-->
+<!--													<td>Vitae integer tempus condimentum.</td>-->
+<!--													<td>19.99</td>-->
+<!--												</tr>-->
+<!--												<tr>-->
+<!--													<td>Item Five</td>-->
+<!--													<td>Ante turpis integer aliquet porttitor.</td>-->
+<!--													<td>29.99</td>-->
+<!--												</tr>-->
+<!--											</tbody>-->
+<!--											<tfoot>-->
+<!--												<tr>-->
+<!--													<td colspan="2"></td>-->
+<!--													<td>100.00</td>-->
+<!--												</tr>-->
+<!--											</tfoot>-->
+<!--										</table>-->
+<!--									</div>-->
+
+<!--									<h4>Alternate</h4>-->
+<!--									<div class="table-wrapper">-->
+<!--										<table class="alt">-->
+<!--											<thead>-->
+<!--												<tr>-->
+<!--													<th>Name</th>-->
+<!--													<th>Description</th>-->
+<!--													<th>Price</th>-->
+<!--												</tr>-->
+<!--											</thead>-->
+<!--											<tbody>-->
+<!--												<tr>-->
+<!--													<td>Item One</td>-->
+<!--													<td>Ante turpis integer aliquet porttitor.</td>-->
+<!--													<td>29.99</td>-->
+<!--												</tr>-->
+<!--												<tr>-->
+<!--													<td>Item Two</td>-->
+<!--													<td>Vis ac commodo adipiscing arcu aliquet.</td>-->
+<!--													<td>19.99</td>-->
+<!--												</tr>-->
+<!--												<tr>-->
+<!--													<td>Item Three</td>-->
+<!--													<td> Morbi faucibus arcu accumsan lorem.</td>-->
+<!--													<td>29.99</td>-->
+<!--												</tr>-->
+<!--												<tr>-->
+<!--													<td>Item Four</td>-->
+<!--													<td>Vitae integer tempus condimentum.</td>-->
+<!--													<td>19.99</td>-->
+<!--												</tr>-->
+<!--												<tr>-->
+<!--													<td>Item Five</td>-->
+<!--													<td>Ante turpis integer aliquet porttitor.</td>-->
+<!--													<td>29.99</td>-->
+<!--												</tr>-->
+<!--											</tbody>-->
+<!--											<tfoot>-->
+<!--												<tr>-->
+<!--													<td colspan="2"></td>-->
+<!--													<td>100.00</td>-->
+<!--												</tr>-->
+<!--											</tfoot>-->
+<!--										</table>-->
+<!--									</div>-->
+<!--								</section>-->
+
+<!--								<section>-->
+<!--									<h3 class="major">Buttons</h3>-->
+<!--									<ul class="actions">-->
+<!--										<li><a href="#" class="button primary">Primary</a></li>-->
+<!--										<li><a href="#" class="button">Default</a></li>-->
+<!--									</ul>-->
+<!--									<ul class="actions">-->
+<!--										<li><a href="#" class="button">Default</a></li>-->
+<!--										<li><a href="#" class="button small">Small</a></li>-->
+<!--									</ul>-->
+<!--									<ul class="actions">-->
+<!--										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>-->
+<!--										<li><a href="#" class="button icon solid fa-download">Icon</a></li>-->
+<!--									</ul>-->
+<!--									<ul class="actions">-->
+<!--										<li><span class="button primary disabled">Disabled</span></li>-->
+<!--										<li><span class="button disabled">Disabled</span></li>-->
+<!--									</ul>-->
+<!--								</section>-->
+
+<!--								<section>-->
+<!--									<h3 class="major">Form</h3>-->
+<!--									<form method="post" action="#">-->
+<!--										<div class="fields">-->
+<!--											<div class="field half">-->
+<!--												<label for="demo-name">Name</label>-->
+<!--												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />-->
+<!--											</div>-->
+<!--											<div class="field half">-->
+<!--												<label for="demo-email">Email</label>-->
+<!--												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />-->
+<!--											</div>-->
+<!--											<div class="field">-->
+<!--												<label for="demo-category">Category</label>-->
+<!--												<select name="demo-category" id="demo-category">-->
+<!--													<option value="">-</option>-->
+<!--													<option value="1">Manufacturing</option>-->
+<!--													<option value="1">Shipping</option>-->
+<!--													<option value="1">Administration</option>-->
+<!--													<option value="1">Human Resources</option>-->
+<!--												</select>-->
+<!--											</div>-->
+<!--											<div class="field half">-->
+<!--												<input type="radio" id="demo-priority-low" name="demo-priority" checked>-->
+<!--												<label for="demo-priority-low">Low</label>-->
+<!--											</div>-->
+<!--											<div class="field half">-->
+<!--												<input type="radio" id="demo-priority-high" name="demo-priority">-->
+<!--												<label for="demo-priority-high">High</label>-->
+<!--											</div>-->
+<!--											<div class="field half">-->
+<!--												<input type="checkbox" id="demo-copy" name="demo-copy">-->
+<!--												<label for="demo-copy">Email me a copy</label>-->
+<!--											</div>-->
+<!--											<div class="field half">-->
+<!--												<input type="checkbox" id="demo-human" name="demo-human" checked>-->
+<!--												<label for="demo-human">Not a robot</label>-->
+<!--											</div>-->
+<!--											<div class="field">-->
+<!--												<label for="demo-message">Message</label>-->
+<!--												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										<ul class="actions">-->
+<!--											<li><input type="submit" value="Send Message" class="primary" /></li>-->
+<!--											<li><input type="reset" value="Reset" /></li>-->
+<!--										</ul>-->
+<!--									</form>-->
+<!--								</section>-->
+
+<!--							</article>-->
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
