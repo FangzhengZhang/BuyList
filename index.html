@@ -439,53 +439,64 @@
 								<br>
 								<br>
 								<p class="no-padding"><b>Quality Attributes:</b></p>
-								<p>In order to achieve the design objectives of the BuyerList tool, many design decisions are needed which will impact the design of the software architecture. Helping to drive those design decisions are the quality attributes which we feel are the most important for the success of the system.</p>
-								<p>Usability</p>
-								<p>Portability</p>
-								<p>Flexibility</p>
-								<p>Maintainability</p>
-								<p>Testability</p>
-
+								<p>In order to achieve the design objectives of the BuyerList tool, many design decisions are needed which will impact the design of the software architecture. Helping to drive those design decisions are the quality attributes which we feel are the most important for the success of the system. Those quality attributes are:</p>
 								<ul>
-									<li>Product Revision
-										<ul>
-											<li>Maintainability – important (resolve any issues quickly)</li>
-											<li>Flexibility – important (changing customer needs and changing environment)
-												<ul>
-													<li>Client-server software architecture is versatile and flexible in today’s fast-changing IT landscape. It is modular in structure and relies on messaging services for communication between components. They were designed to improve flexibility, usability, scalability, and interoperability. Software flexibility implies the ability for a program to change easily according to different users and different system requirements.</li>
-												</ul>
-											</li>
-											<li>Testability – important (test fixes or new functionality quickly)</li>
-										</ul>
-									</li>
-									<li>Product Operation
-										<ul>
-											<li>Correctness</li>
-											<li>Reliability</li>
-											<li>Usability – important (must be easy to use or lose customers, competitive market)
-												<ul>
-													<li>Two tier client-server software architectures improve usability and scalability. Usability is increased though user-friendly, form-based interfaces. Scalability is improved because two tiered systems can hold up to 100 users, whereas file server architectures can only accommodate 12.</li>
-													<li>Three tier client server architecture is also known as multi-tier architecture and signals the introduction of a middle tier to mediate between clients and servers. The middle tier exists between the user interface on the client side and database management system (DBMS) on the server side. This third layer executes process management, which includes implementation of business logic and rules. The three tier models can accommodate hundreds of users.</li>
-												</ul>
-											</li>
-											<li>Integrity</li>
-											<li>Efficiency</li>
-										</ul>
-									</li>
-									<li>Product Transition
-										<ul>
-											<li>Portability – 2. important (computer vs. mobile and PC vs. Apple)
-												<ul>
-													<li>The clients can be ported to many different operating systems and still use the same server.</li>
-													<li>The clients can each be optimized to perform best for each specific operating system.</li>
-													<li>Due to the multi-tiered architecture, the server will not have to change to accommodate the different clients.</li>
-												</ul>
-											</li>
-										</ul>
-									</li>
-									<li>Reusability</li>
-									<li>Interoperability</li>
+									<li>Usability</li>
+									<li>Portability</li>
+									<li>Flexibility</li>
+									<li>Maintainability</li>
+									<li>Testability</li>
 								</ul>
+								<p><b>Usability</b>  is the most important quality attribute for the BuyerList tool because it is entering a competitive service area. Out potential customers have a variety of choices in the used goods arena, so our tool must be very user-friendly, or our customers will use another option. If users do not see the BuerList tool as useful, then they will not use it.</p>
+								<p>Two tier client-server software architectures improve usability and scalability. Usability is increased though user-friendly, form-based interfaces. Scalability is improved because two tiered systems can hold up to 100 users, whereas file server architectures can only accommodate 12.</p>
+								<p>Three tier client server architecture is also known as multi-tier architecture and signals the introduction of a middle tier to mediate between clients and servers. The middle tier exists between the user interface on the client side and database management system (DBMS) on the server side. This third layer executes process management, which includes implementation of business logic and rules. The three tier models can accommodate hundreds of users.</p>
+								<p><b>Portability</b> is an important quality attribute because we want our tool to be available to as many users as possible by making our tool available over multiple platforms. We want to serve customers who use their computer or their mobile device. We want to serve users who are on a PC, Android and Apple environment. This means, the BuyerList tool will need to be able to operate on the Windows, macOS, Android, and iOS operating systems. The goal would be to have a single solution which can be ported over to the different operating system.</p>
+								<p>The clients can be ported to many different operating systems and still use the same server. The clients can each be optimized to perform best for each specific operating system. Due to the multi-tiered architecture, the server will not have to change to accommodate the different clients.</p>
+								<p><b>Flexibility</b> is an important quality attribute because in the competitive arena of used goods, the BuyerList tool will need to keep up with and adjust to the changing needs of our customers and the market. For the tool to be useful and remain useful to our potential customers, it must provide the features they want. As the needs of our customers change and evolve, the BuyerList tool must be able to quickly change and evolve with those needs. This means the software architecture must be flexible so that it can be modified to add or change the functionality of the tool.</p>
+								<p>Client-server software architecture is versatile and flexible in today’s fast-changing IT landscape. It is modular in structure and relies on messaging services for communication between components. They were designed to improve flexibility, usability, scalability, and interoperability. Software flexibility implies the ability for a program to change easily according to different users and different system requirements.</p>
+								<p><b>Maintainability</b> is an important quality attribute of the tool because defects and errors must be addressed quickly. The BuyerList tool cannot risk a negative customer experience due to defects or functionality that does not work correctly. Defects need to be prevented from reaching the customer. But, if they do, must be fixed right away. The software architecture needs to enable rapid maintenance and correction of defects and errors.</p>
+								<p><b>Testability</b> is an important quality attribute for the tool because it supports flexibility and maintainability. The BuyerList tool will need to change continuously due to either changing customer needs or maintenance fixes. Testability is essential for being able to verify that these changes work and do not introduce other issues. Most issues come from either a new function or a fix to an existing function. Testing will be critical to ensuring that changes to not introduce issues.</p>
+
+								<!--								<ul>-->
+<!--									<li>Product Revision-->
+<!--										<ul>-->
+<!--											<li>Maintainability – important (resolve any issues quickly)</li>-->
+<!--											<li>Flexibility – important (changing customer needs and changing environment)-->
+<!--												<ul>-->
+<!--													<li>Client-server software architecture is versatile and flexible in today’s fast-changing IT landscape. It is modular in structure and relies on messaging services for communication between components. They were designed to improve flexibility, usability, scalability, and interoperability. Software flexibility implies the ability for a program to change easily according to different users and different system requirements.</li>-->
+<!--												</ul>-->
+<!--											</li>-->
+<!--											<li>Testability – important (test fixes or new functionality quickly)</li>-->
+<!--										</ul>-->
+<!--									</li>-->
+<!--									<li>Product Operation-->
+<!--										<ul>-->
+<!--											<li>Correctness</li>-->
+<!--											<li>Reliability</li>-->
+<!--											<li>Usability – important (must be easy to use or lose customers, competitive market)-->
+<!--												<ul>-->
+<!--													<li>Two tier client-server software architectures improve usability and scalability. Usability is increased though user-friendly, form-based interfaces. Scalability is improved because two tiered systems can hold up to 100 users, whereas file server architectures can only accommodate 12.</li>-->
+<!--													<li>Three tier client server architecture is also known as multi-tier architecture and signals the introduction of a middle tier to mediate between clients and servers. The middle tier exists between the user interface on the client side and database management system (DBMS) on the server side. This third layer executes process management, which includes implementation of business logic and rules. The three tier models can accommodate hundreds of users.</li>-->
+<!--												</ul>-->
+<!--											</li>-->
+<!--											<li>Integrity</li>-->
+<!--											<li>Efficiency</li>-->
+<!--										</ul>-->
+<!--									</li>-->
+<!--									<li>Product Transition-->
+<!--										<ul>-->
+<!--											<li>Portability – 2. important (computer vs. mobile and PC vs. Apple)-->
+<!--												<ul>-->
+<!--													<li>The clients can be ported to many different operating systems and still use the same server.</li>-->
+<!--													<li>The clients can each be optimized to perform best for each specific operating system.</li>-->
+<!--													<li>Due to the multi-tiered architecture, the server will not have to change to accommodate the different clients.</li>-->
+<!--												</ul>-->
+<!--											</li>-->
+<!--										</ul>-->
+<!--									</li>-->
+<!--									<li>Reusability</li>-->
+<!--									<li>Interoperability</li>-->
+<!--								</ul>-->
 								<br>
 								<br>
 								<p class="no-padding"><b>System Hierarchy:</b></p>
